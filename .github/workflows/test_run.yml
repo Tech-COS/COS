@@ -1,0 +1,46 @@
+name: Build and Run Tests
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout code Public
+        if: github.repository == 'EpitechPromo2026/G-EIP-700-LYN-7-1-eip-corentin.abriel'
+        uses: actions/checkout@v3
+
+      - name: Checkout code Private
+        if: github.repository != 'EpitechPromo2026/G-EIP-700-LYN-7-1-eip-corentin.abriel'
+        uses: actions/checkout@v3
+        with:
+            submodules: true
+            token: ${{ secrets.EIP_EPITECH_TOKEN }}
+
+      - name: Update submodules
+        if: github.repository != 'EpitechPromo2026/G-EIP-700-LYN-7-1-eip-corentin.abriel'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git submodule update --init --recursive
+        env:
+          GITHUB_ACTOR: ${{ github.EIP_EPITECH_TOKEN }}
+
+      - name: Install lightweight dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y nasm gcc make
+
+      - name: Build and run tests
+        run: |
+          make TESTING=1 test_run
+
+      - name: Run tests
+        run: |
+          ./test_run
+          ./MemoryManagement/test_run

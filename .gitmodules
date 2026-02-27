@@ -1,0 +1,18 @@
+[submodule "FileSystem"]
+	path = FileSystem
+	url = git@github.com:Tech-COS/FileSystem.git
+[submodule "MemoryManagement"]
+	path = MemoryManagement
+	url = git@github.com:Tech-COS/MemoryManagement.git
+[submodule "Documentation"]
+	path = Documentation
+	url = git@github.com:Tech-COS/Documentation.git
+[submodule "WindowsParser"]
+	path = WindowsParser
+	url = git@github.com:Tech-COS/WindowsParser.git
+[submodule "LinuxParser"]
+	path = LinuxParser
+	url = git@github.com:Tech-COS/LinuxParser.git
+[submodule "Scheduler"]
+	path = Scheduler
+	url = git@github.com:Tech-COS/Scheduler.git

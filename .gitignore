@@ -1,0 +1,13 @@
+build
+*.iso
+*.o
+*.bin
+/src/bin/hello_world_elf
+test_run
+settings.json
+test_disk
+.gdb_history
+.cache/
+compile_commands.json
+.idea/
+cmake-build*

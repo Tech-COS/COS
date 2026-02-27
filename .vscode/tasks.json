@@ -1,0 +1,13 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Launch QEMU",
+            "type": "shell",
+            "linux": {
+                "command": "qemu-system-x86_64 -S -gdb tcp::1234 -boot d -cdrom cos.iso -m 512 -drive file=test_disk,format=raw,index=0,if=ide -monitor stdio -rtc base=utc,driftfix=slew -cpu max,+sse,+sse2,+sse3,enforce"
+            },
+            "isBackground": true
+        }
+    ]
+}
